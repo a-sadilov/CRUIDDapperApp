@@ -1,0 +1,128 @@
+﻿<Window x:Class="CRUIDDapperApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:models="clr-namespace:CRUIDDapperApp.DAL.Models"
+        d:DataContext="{d:DesignInstance Type=models:User}"
+        mc:Ignorable="d"
+         Title="Reestr App V1.0" Height="590"  Width="1290" Loaded="Window_Loaded">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition  Width="*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+        <Grid x:Name="anketa" Grid.Column="0" Grid.RowSpan="2" Height="540" VerticalAlignment="Top">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid Margin="10,55,10,0" Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="45"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Label Content="Имя:" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left"  VerticalAlignment="Center" Height="18" Padding="0,0,0,0"/>
+                <TextBox x:Name="textBoxFirstName" Text="{Binding Path=FirstName}" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center"  TextWrapping="Wrap" VerticalAlignment="Center" Width="130" />
+                <Label Content="Фамилия:" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left"  VerticalAlignment="Center" Height="18" Padding="0,0,0,0"/>
+                <TextBox x:Name="textBoxLastName" Text="{Binding Path=LastName}" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Width="130"/>
+                <Label Content="Отчество:" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="18" Padding="0,0,0,0"/>
+                <TextBox x:Name="textBoxFatherName" Text="{Binding Path=FatherName}" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center"  TextWrapping="Wrap" VerticalAlignment="Center" Width="130"/>
+                <Label Content="ИНН:" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center" Height="18" Padding="0,0,0,0"/>
+                <TextBox x:Name="textBoxINN" Text="{Binding Path=Inn}" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center"  TextWrapping="Wrap" VerticalAlignment="Center" Width="130"/>
+                <TextBox x:Name="textBoxOrgName" Text="{Binding Path=OrgName}" Grid.Row="6" Grid.Column="1" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Width="130"/>
+                <TextBox x:Name="textBoxOrgINN" Text="{Binding Path=OrgInn}" Grid.Row="7" Grid.Column="1" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Width="130"/>
+                <TextBox x:Name="textBoxOrgAdress" Text="{Binding Path=OrgAdress}" Grid.Row="8" Grid.Column="1" HorizontalAlignment="Center"  TextWrapping="Wrap" VerticalAlignment="Center" Width="130">
+                    </TextBox>
+                <Label Content="Название:" Grid.Row="6" HorizontalAlignment="Left"  VerticalAlignment="Center" Height="18" Padding="0,0,0,0"/>
+                <Label Content="ИНН:" Grid.Row="7" HorizontalAlignment="Left"  VerticalAlignment="Center" Height="18" Padding="0,0,0,0"/>
+                <Label Content="Адрес: " Grid.Row="8" Grid.Column="0" HorizontalAlignment="Left"  VerticalAlignment="Center" Height="18" Padding="0,0,0,0"/>
+                <Label Content="Личные данные:" Grid.Row="0" Grid.ColumnSpan="2" VerticalAlignment="Center" Height="18" Padding="0,0,0,0"/>
+                <Label Content="Данные организации:" Grid.Row="5" Grid.ColumnSpan="2"  VerticalAlignment="Center" Height="18" Padding="0,0,0,0"/>
+                <Button x:Name="addSertificates" Content="Добавить сертификаты" Grid.Row="9" Grid.ColumnSpan="2" Margin="0,10,0,10" VerticalAlignment="Top" Click="addSertificates_Click" Height="30" BorderThickness="0" >
+                    <Button.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="Gray" Offset="0.1"></GradientStop>
+                            <GradientStop Color="White" Offset="1"></GradientStop>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+                <Button x:Name="findData" Grid.Row="10" Grid.ColumnSpan="2" Content="Найти пользователей в бд"  VerticalAlignment="Center" Click="FindUser_Click" Height="30"  BorderThickness="0" >
+                    <Button.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="Gray" Offset="0.1"></GradientStop>
+                            <GradientStop Color="White" Offset="1"></GradientStop>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+                <Button x:Name="loadData" Grid.Row="11" Grid.ColumnSpan="2" Content="Загрузить пользователя в бд"  VerticalAlignment="Center" Click="AddUser_Click" Height="30"  BorderThickness="0" >
+                    <Button.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="Gray" Offset="0.1"></GradientStop>
+                            <GradientStop Color="White" Offset="1"></GradientStop>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+                <Button x:Name="deleteData" Grid.Row="12" Grid.ColumnSpan="2" Margin="0,0,0,10" Content="Удалить пользователя из бд"  VerticalAlignment="Center" Click="DeleteUser_Click" Height="30" BorderThickness="0" >
+                    <Button.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="Gray" Offset="0.1"></GradientStop>
+                            <GradientStop Color="White" Offset="1"></GradientStop>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+                <Image HorizontalAlignment="Left" Height="55" Margin="29,45,0,0" Grid.Row="9" VerticalAlignment="Top" Width="52"/>
+            </Grid>
+
+        </Grid>
+        <Grid Grid.Column="1" Grid.RowSpan="2" Height="550" VerticalAlignment="Top" >
+            <DataGrid x:Name="reestrGrid" AlternatingRowBackground="Gray" CanUserAddRows="False" CanUserDeleteRows="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding UserId}" Header="Id" Width="Auto"/>
+                    <DataGridTextColumn Binding="{Binding FirstName}" Header="Имя" Width="Auto"/>
+                    <DataGridTextColumn Binding="{Binding LastName}" Header="Фамилия" Width="Auto"/>
+                    <DataGridTextColumn Binding="{Binding FatherName}" Header="Отчество" Width="Auto"/>
+                    <DataGridTextColumn Binding="{Binding Inn}" Header="ИНН" Width="Auto"/>
+                    <DataGridTextColumn Binding="{Binding OrgName}" Header="Организация" Width="Auto"/>
+                    <DataGridTextColumn Binding="{Binding OrgInn}" Header="ИНН Организации" Width="Auto"/>
+                    <DataGridTextColumn Binding="{Binding OrgAdress}" Header="Адрес организации" Width="Auto"/>
+                    
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+
+        <Menu x:Name="menu" Margin="3,10,10,10" Grid.ColumnSpan="1" Grid.Column="0">
+            <MenuItem Header="Помощь" Height="29" Width="58" >
+                <MenuItem Header="Вводимые параметры" Click="MenuItemHelpValues_Click"></MenuItem>
+                <MenuItem Header="Поиск данных в бд" Click="MenuItemHelpFindData_Click"></MenuItem>
+                <MenuItem Header="Загрузка данных в бд" Click="MenuItemHelpPushData_Click"></MenuItem>
+                <MenuItem Header="Удаление данных из бд" Click="MenuItemHelpDeleteData_Click"></MenuItem>
+            </MenuItem>
+            <Menu.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="Gray" Offset="0.1"></GradientStop>
+                    <GradientStop Color="White" Offset="1"></GradientStop>
+                </LinearGradientBrush>
+            </Menu.Background>
+        </Menu>
+    </Grid>
+</Window>
+
