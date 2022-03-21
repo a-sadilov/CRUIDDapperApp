@@ -172,5 +172,10 @@ namespace CRUIDDapperApp
                 sr.Close();
             }
         }
+
+        private void deleteData_MouseEnter(object sender, MouseEventArgs e)
+        {
+
+        }
     }
 }

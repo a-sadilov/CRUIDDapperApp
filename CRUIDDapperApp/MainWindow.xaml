@@ -3,14 +3,21 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:models="clr-namespace:CRUIDDapperApp.DAL.Models"
+        xmlns:models="clr-namespace:CRUIDDapperApp.DAL.Models" xmlns:Button="clr-namespace:CRUIDDapperApp.CustomControls"
         d:DataContext="{d:DesignInstance Type=models:User}"
         mc:Ignorable="d"
         Title="MainWindow" Height="800" Width="1200"
         WindowStartupLocation="CenterScreen" Background="Transparent"
         AllowsTransparency="True" WindowStyle="None" ResizeMode="NoResize" Loaded="Window_Loaded">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/resources/icons.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
     <Border CornerRadius="20" Background="#272537">
-        
+
         <Grid Margin="20,20,20,20">
             <Grid.RowDefinitions>
                 <RowDefinition Height="50"/>
@@ -20,8 +27,7 @@
                 <ColumnDefinition Width="340"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Grid x:Name="anketa" Grid.Column="0" Grid.RowSpan="2" Height="650" VerticalAlignment="Top">
-                
+            <Grid x:Name="anketa" Grid.Column="0" Grid.RowSpan="2" Height="670" VerticalAlignment="Top">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
@@ -29,9 +35,8 @@
                            Grid.ColumnSpan="1" Grid.Column="0" Foreground="WhiteSmoke"
                            HorizontalAlignment="Left" VerticalAlignment="Top"
                            FontSize="32"  FontFamily="Arial Rounded MT Bold"
-                           
                            Margin="10,10,0,0"/>
-                <Grid Margin="10,55,10,0" Grid.Row="0" Height="Auto">
+                <Grid Margin="10,55,10,10" Grid.Row="0" Height="Auto">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                         <RowDefinition/>
@@ -42,10 +47,10 @@
                         <RowDefinition/>
                         <RowDefinition/>
                         <RowDefinition/>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                        <RowDefinition/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="100" />
@@ -90,46 +95,19 @@
                     <TextBlock Text="Адрес: " Grid.Row="8" Grid.Column="0"
                                Style="{StaticResource MenuTextBlockStyle}"
                                Margin="10,0,0,0"/>
-                    
-                    <Button x:Name="addSertificates" Content="Добавить сертификаты" Grid.Row="9" Grid.ColumnSpan="2"
-                            VerticalAlignment="Top" Click="addSertificates_Click" Height="30" BorderThickness="0" >
-                        <Button.Background>
-                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                                <GradientStop Color="Gray" Offset="0.1"></GradientStop>
-                                <GradientStop Color="White" Offset="1"></GradientStop>
-                            </LinearGradientBrush>
-                        </Button.Background>
-                    </Button>
-                    <Button x:Name="findData" Grid.Row="10" Grid.ColumnSpan="2" Content="Найти пользователей в бд"
-                            VerticalAlignment="Center" Click="FindUser_Click" Height="30"  BorderThickness="0" >
-                        <Button.Background>
-                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                                <GradientStop Color="Gray" Offset="0.1"></GradientStop>
-                                <GradientStop Color="White" Offset="1"></GradientStop>
-                            </LinearGradientBrush>
-                        </Button.Background>
-                    </Button>
-                    <Button x:Name="loadData" Grid.Row="11" Grid.ColumnSpan="2" Content="Загрузить пользователя в бд"
-                            VerticalAlignment="Center" Click="AddUser_Click" Height="30"  BorderThickness="0" >
-                        <Button.Background>
-                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                                <GradientStop Color="Gray" Offset="0.1"></GradientStop>
-                                <GradientStop Color="White" Offset="1"></GradientStop>
-                            </LinearGradientBrush>
-                        </Button.Background>
-                    </Button>
-                    <Button x:Name="deleteData" Grid.Row="12" Grid.ColumnSpan="2" Content="Удалить пользователя из бд"
-                            VerticalAlignment="Center" Click="DeleteUser_Click" Height="30" BorderThickness="0" >
-                        <Button.Background>
-                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                                <GradientStop Color="Gray" Offset="0.1"></GradientStop>
-                                <GradientStop Color="White" Offset="1"></GradientStop>
-                            </LinearGradientBrush>
-                        </Button.Background>
-                    </Button>
-                    
+                    <Button:MenuButton x:Name="addSertificates" Text="Загрузить файл" Grid.Row="12" Grid.ColumnSpan="2"
+                            Padding="10,5,10,5" Icon="{StaticResource Shared}" >
+                    </Button:MenuButton>
+                    <Button:MenuButton x:Name="findData" Grid.Row="9" Grid.ColumnSpan="2" Text="Найти пользователя"
+                            Padding="10,5,10,5" Icon="{StaticResource Search}">
+                    </Button:MenuButton>
+                    <Button:MenuButton x:Name="loadData" Grid.Row="10" Grid.ColumnSpan="2"
+                                       Text="Добавить нового пользователя" Padding="10,5,10,5" Icon="{StaticResource plus}">
+                    </Button:MenuButton>
+                    <Button:MenuButton x:Name="deleteData" Grid.Row="11" Grid.ColumnSpan="2" 
+                                       Padding="10,5,10,5" Icon="{StaticResource Trash}" Text="Удалить пользователя">
+                    </Button:MenuButton>
                 </Grid>
-
             </Grid>
             <Grid Grid.Column="1" Grid.RowSpan="2"  VerticalAlignment="Top" >
                 <DataGrid x:Name="reestrGrid" Foreground="#272537" Background="DarkGray"
@@ -144,7 +122,6 @@
                         <DataGridTextColumn Binding="{Binding OrgName}" Header="Организация" Width="Auto"/>
                         <DataGridTextColumn Binding="{Binding OrgInn}" Header="ИНН Организации" Width="Auto"/>
                         <DataGridTextColumn Binding="{Binding OrgAdress}" Header="Адрес организации" Width="Auto"/>
-
                     </DataGrid.Columns>
                 </DataGrid>
             </Grid>
@@ -162,4 +139,3 @@
         </Grid>
     </Border>
 </Window>
-

@@ -105,6 +105,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="CustomControls\MenuButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -114,7 +118,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Core\ObservableObject.cs" />
-    <Compile Include="Core\RelayCommand.cs" />
+    <Compile Include="CustomControls\MenuButton.xaml.cs">
+      <DependentUpon>MenuButton.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DAL\Implementations\DBConnection.cs" />
     <Compile Include="DAL\Implementations\UserRepositoryDAL.cs" />
     <Compile Include="DAL\Interfaces\IUserRepository.cs" />
