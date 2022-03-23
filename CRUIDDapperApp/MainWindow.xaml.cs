@@ -1,5 +1,5 @@
-﻿using CRUIDDapperApp.DAL.Implementations;
-using CRUIDDapperApp.DAL.Models;
+﻿using CRUDReestrApp.DAL.Implementations;
+using CRUDReestrApp.DAL.Models;
 using Microsoft.Win32;
 using Npgsql;
 using System;
@@ -11,7 +11,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 
 
-namespace CRUIDDapperApp
+namespace CRUDReestrApp
 {
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
@@ -70,6 +70,7 @@ namespace CRUIDDapperApp
         {
             try
             {
+                new Button();
                 userRepository.UpdateUser(user);
                 reestrGrid.ItemsSource = userRepository.GetUsers();
             }

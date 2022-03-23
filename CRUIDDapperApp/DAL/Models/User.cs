@@ -4,7 +4,7 @@ using System.Runtime.CompilerServices;
 using System;
 using System.Data.SqlTypes;
 
-namespace CRUIDDapperApp.DAL.Models
+namespace CRUDReestrApp.DAL.Models
 {
     public class User : INotifyPropertyChanged
     {

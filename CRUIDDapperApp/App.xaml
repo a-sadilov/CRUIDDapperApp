@@ -1,7 +1,7 @@
-﻿<Application x:Class="CRUIDDapperApp.App"
+﻿<Application x:Class="CRUDReestrApp.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:CRUIDDapperApp"
+             xmlns:local="clr-namespace:CRUDReestrApp"
              StartupUri="MainWindow.xaml">
 
     <Application.Resources>

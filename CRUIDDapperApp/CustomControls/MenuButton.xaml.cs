@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace CRUIDDapperApp.CustomControls
+namespace CRUDReestrApp.CustomControls
 {
     /// <summary>
     /// Логика взаимодействия для MenuButton.xaml

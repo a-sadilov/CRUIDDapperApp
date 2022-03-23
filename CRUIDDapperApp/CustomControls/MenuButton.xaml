@@ -1,9 +1,9 @@
-﻿<UserControl x:Class="CRUIDDapperApp.CustomControls.MenuButton"
+﻿<UserControl x:Class="CRUDReestrApp.CustomControls.MenuButton"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:CRUIDDapperApp.CustomControls"
+             xmlns:local="clr-namespace:CRUDReestrApp.CustomControls"
              mc:Ignorable="d" x:Name="this" Background="Transparent">
     <UserControl.Resources>
         <!--Setting default icon if we didn't bind any icon in MainWindow-->
