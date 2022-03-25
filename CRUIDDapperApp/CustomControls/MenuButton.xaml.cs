@@ -51,14 +51,26 @@ namespace CRUDReestrApp.CustomControls
         public new static readonly DependencyProperty PaddingProperty =
             DependencyProperty.Register("Padding", typeof(Thickness), typeof(MenuButton));
 
-        /*public RoutedEvent Click
+        public event RoutedEventHandler Click
         {
-            get { return (RoutedEvent)GetValue(Click); }
-            set { SetValue(Click, value); }
+            add
+            {
+                AddHandler(ClickEvent, value);
+            }
+            remove { RemoveHandler(ClickEvent, value); }
         }
+        public static readonly RoutedEvent ClickEvent =
+            EventManager.RegisterRoutedEvent("Click", RoutingStrategy.Bubble, typeof(RoutedEventHandler), typeof(MenuButton));
 
-        public static readonly DependencyProperty Click =
-            DependencyProperty.Register("Click", typeof(RoutedEvent), typeof(MenuButton));*/
+        void RaiseAddClickEvent()
+        {
+            RaiseEvent(new RoutedEventArgs(ClickEvent));
+        }
+        // For demonstration purposes we raise the event when the MyButtonSimple is clicked
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            RaiseAddClickEvent();
+        }
     }
 }

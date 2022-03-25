@@ -96,15 +96,15 @@
                                Style="{StaticResource MenuTextBlockStyle}"
                                Margin="10,0,0,0"/>
                     <Button:MenuButton x:Name="addSertificates" Text="Загрузить файл" Grid.Row="12" Grid.ColumnSpan="2"
-                            Padding="10,5,10,5" Icon="{StaticResource Shared}" >
+                            Padding="10,5,10,5" Icon="{StaticResource Shared}" Click="addSertificates_Click" >
                     </Button:MenuButton>
                     <Button:MenuButton x:Name="findData" Grid.Row="9" Grid.ColumnSpan="2" Text="Найти пользователя"
-                            Padding="10,5,10,5" Icon="{StaticResource Search}">
+                            Padding="10,5,10,5" Icon="{StaticResource Search}" Click="FindUser_Click">
                     </Button:MenuButton>
-                    <Button:MenuButton x:Name="loadData" Grid.Row="10" Grid.ColumnSpan="2"
+                    <Button:MenuButton x:Name="loadData" Grid.Row="10" Grid.ColumnSpan="2" Click="AddUser_Click"
                                        Text="Добавить нового пользователя" Padding="10,5,10,5" Icon="{StaticResource plus}">
                     </Button:MenuButton>
-                    <Button:MenuButton x:Name="deleteData" Grid.Row="11" Grid.ColumnSpan="2" 
+                    <Button:MenuButton x:Name="deleteData" Grid.Row="11" Grid.ColumnSpan="2" Click="DeleteUser_Click"
                                        Padding="10,5,10,5" Icon="{StaticResource Trash}" Text="Удалить пользователя">
                     </Button:MenuButton>
                 </Grid>

@@ -24,6 +24,7 @@ namespace CRUDReestrApp
         {
             InitializeComponent();
             DataContext = user;
+
             /*textBoxFirstName.PreviewTextInput += OnInpuTextboxestInputPrewiew;
             textBoxLastName.PreviewTextInput += OnInpuTextboxestInputPrewiew;
             textBoxFatherName.PreviewTextInput += OnInpuTextboxestInputPrewiew;

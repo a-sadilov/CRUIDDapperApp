@@ -17,6 +17,11 @@
             <Setter Property="FontWeight" Value="Normal"/>
             <Setter Property="FontFamily" Value="Arial Rounded MT"/>
             <Setter Property="Margin" Value="5,5,5,5"/>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Path=IsMouseOver, ElementName=this}" Value="True">
+                    <Setter Property="FontSize" Value="18" />
+                </DataTrigger>
+            </Style.Triggers>
 
         </Style>
         <!--#endregion-->
@@ -45,23 +50,26 @@
 
                                 <!--the Fallbackvalue is used when the binding path is not correct or null so we can set default value to use instead of that in case.. like we are using default icon here.. and so does happen with Targetnullvalue.. when there is no value provided from source our binding will use default value-->
 
-                                <Path Data="{Binding Icon, ElementName=this, FallbackValue={StaticResource DefaultIcon}, TargetNullValue={StaticResource DefaultIcon}}" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                <Path Data="{Binding Icon, ElementName=this, FallbackValue={StaticResource DefaultIcon},
+                                    TargetNullValue={StaticResource DefaultIcon}}" HorizontalAlignment="Center" VerticalAlignment="Center"
                                           Stretch="Uniform"
                                           Height="18" Width="20" 
                                           Fill="White"/>
 
-                                <TextBlock Style="{StaticResource MenuTextBlockStyle}" Grid.Column="1" Text="{Binding Text, ElementName=this, FallbackValue=MenuText, TargetNullValue=MenuText}"/>
+                                <TextBlock Style="{StaticResource MenuTextBlockStyle}" Grid.Column="1"
+                                           Text="{Binding Text, ElementName=this, FallbackValue=MenuText, TargetNullValue=MenuText}"/>
                             </Grid>
                         </Border>
                         <ControlTemplate.Triggers>
                             <!--Trigger to set our toggle button as checked on MainWindow Startup-->
-                            <DataTrigger Binding="{Binding IsPressed, ElementName=this}" Value="True">
-                                <!--Setter Property="ClickMode" Value="Press"/-->
-                                <Setter Property="Foreground" Value="#353340"/>
+                            <DataTrigger Binding="{Binding ElementName=this, Path=IsPressed}" Value="True">
+
+                                <Setter Property="Background" Value="#353340"/>
                             </DataTrigger>
-                            <DataTrigger Binding="{Binding IsMouseOver, ElementName=this}" Value="True">
-                                <Setter Property="Foreground" Value="#353340"/>
+                            <DataTrigger Binding="{Binding ElementName=this, Path=IsMouseOver}" Value="True">
+                                <Setter Property="Background" Value="#353340"/>
                             </DataTrigger>
+                            
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
                 </Setter.Value>
@@ -69,6 +77,7 @@
             
         </Style>
     </UserControl.Resources>
+    
     <!--now since we have radio button, there is a property "GroupName" which we can use for our benefit here..-->
-    <Button Style="{StaticResource MenuButtonStyle}"/>
+    <Button Style="{StaticResource MenuButtonStyle}" Click="Button_Click" />
 </UserControl>
