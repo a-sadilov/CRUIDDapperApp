@@ -1,6 +1,6 @@
 <br />
 <p align="center">
-<img src="logo.PNG" alt="Logo" width="400" height="90">
+<img src="logo.PNG" alt="Logo" width="Auto" height="Auto">
 
   <h3 align="center">Веб-менеджер супермаркета</h3>
 
