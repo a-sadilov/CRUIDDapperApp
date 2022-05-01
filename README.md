@@ -2,7 +2,7 @@
 <p align="center">
 <img src="logo.PNG" alt="Logo" width="Auto" height="Auto">
 
-  <h3 align="center">Веб-менеджер супермаркета</h3>
+  <h3 align="center">Клиент CRUD приложения для БД реестра пользователей</h3>
 
   <p align="center">
     Это проект, помогающий пользователю выполнять классические CRUD действия с бд.
