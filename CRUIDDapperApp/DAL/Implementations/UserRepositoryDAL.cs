@@ -96,6 +96,7 @@ namespace CRUDReestrApp.DAL.Implementations
             using (var connection = DBConnection.CreateConnection())
             {
                 return connection.Query<User>("select * from reestr_users");
+                
             }
         }
 

@@ -66,8 +66,7 @@ namespace CRUDReestrApp.CustomControls
         {
             RaiseEvent(new RoutedEventArgs(ClickEvent));
         }
-        // For demonstration purposes we raise the event when the MyButtonSimple is clicked
-
+        // For demonstration purposes we raise the event when the MyButtonSimple is clicked  
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             RaiseAddClickEvent();

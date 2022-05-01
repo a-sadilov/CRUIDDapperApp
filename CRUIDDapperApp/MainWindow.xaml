@@ -6,7 +6,7 @@
         xmlns:models="clr-namespace:CRUDReestrApp.DAL.Models" xmlns:Button="clr-namespace:CRUDReestrApp.CustomControls"
         d:DataContext="{d:DesignInstance Type=models:User}"
         mc:Ignorable="d"
-        Title="MainWindow" Height="800" Width="1200"
+        Title="MainWindow" Height="800" Width="1300"
         WindowStartupLocation="CenterScreen" Background="Transparent"
         AllowsTransparency="True" WindowStyle="None" ResizeMode="NoResize" Loaded="Window_Loaded">
     <Window.Resources>
@@ -110,9 +110,8 @@
                 </Grid>
             </Grid>
             <Grid Grid.Column="1" Grid.RowSpan="2"  VerticalAlignment="Top" >
-                <DataGrid x:Name="reestrGrid" Foreground="#272537" Background="DarkGray"
-                          AlternatingRowBackground="Silver" Height="650" Margin="5,15,5,40"
-                          CanUserAddRows="False" CanUserDeleteRows="False" FontSize="14">
+                <DataGrid 
+                    x:Name="DataGrid" Height="750" Margin="5,15,5,15" >
                     <DataGrid.Columns>
                         <DataGridTextColumn Binding="{Binding UserId}" Header="Id" Width="Auto"/>
                         <DataGridTextColumn Binding="{Binding FirstName}" Header="Имя" Width="Auto"/>
@@ -125,17 +124,31 @@
                     </DataGrid.Columns>
                 </DataGrid>
             </Grid>
-            <!--" Menu x:Name="menu" Margin="3,10,10,10"
-                  Grid.ColumnSpan="1" Grid.Column="0" Background="#22202F">
-                    <MenuItem Header="Помощь" Height="29" Width="58"
-                              Background="White" FontFamily="Segoe UI Semibold"
-                              FontSize="12" Margin="11,0,0,0">
-                        <MenuItem Header="Вводимые параметры" Click="MenuItemHelpValues_Click"></MenuItem>
-                        <MenuItem Header="Поиск данных в бд" Click="MenuItemHelpFindData_Click"></MenuItem>
-                        <MenuItem Header="Загрузка данных в бд" Click="MenuItemHelpPushData_Click"></MenuItem>
-                        <MenuItem Header="Удаление данных из бд" Click="MenuItemHelpDeleteData_Click"></MenuItem>
-                    </MenuItem>
-            </Menu-->
+            <Menu x:Name="menu" Margin="200,15,10,5"
+                  Grid.ColumnSpan="1" Grid.Column="0"
+                  Background="Transparent"
+                  HorizontalAlignment="Center"
+                  VerticalAlignment="Center">
+                
+                <MenuItem Header="Помощь" Foreground="White"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Left"
+                    FontSize="16"
+                    FontWeight="Normal"
+                    FontFamily="Segoe UI Semibold"
+                    Margin="0,0,0,0">
+                    <MenuItem Header="Вводимые параметры"
+                              Background="#515EC1"
+                              Click="MenuItemHelpValues_Click"/>
+                    <MenuItem Header="Поиск данных в бд" Background="#515EC1" Click="MenuItemHelpFindData_Click"/>
+                    <MenuItem Header="Загрузка данных в бд"
+                               Background="#515EC1" Click="MenuItemHelpPushData_Click"/>
+                    <MenuItem Header="Удаление данных из бд"
+                              Background="#515EC1"
+                              Click="MenuItemHelpDeleteData_Click"/>
+                </MenuItem>
+
+            </Menu>
         </Grid>
     </Border>
 </Window>
