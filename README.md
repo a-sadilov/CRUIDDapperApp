@@ -1,14 +1,11 @@
 <br />
 <p align="center">
-<img src="ManagmentApp.png" alt="Logo" width="400" height="90">
+<img src="logo.png" alt="Logo" width="400" height="90">
 
   <h3 align="center">Веб-менеджер супермаркета</h3>
 
   <p align="center">
-    Это проект, помогающий менеджеру какого-либо магазина управлять его асортиментом онлайн.
-    <br />
-    <!--a href="https://fatclient.herokuapp.com/"><strong>Посмотреть демо »</strong></a-->
-    <br />
+    Это проект, помогающий пользователю выполнять классические CRUD действия с бд.
     <br />
     <a href="https://t.me/bisnachauszuvorbei">Телеграм автора</a>
   </p>
