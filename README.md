@@ -55,10 +55,10 @@ ___
 
 
 
-## Демонстрация работы
+## Демонстрация ползовательского интерфейса
 
-
-![alt text](./UI.png)
+<p align="center">
+<img src="UI.PNG" alt="Logo" width="Auto" height="Auto">
 
 
 ## Контакты
