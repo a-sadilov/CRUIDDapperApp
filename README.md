@@ -25,7 +25,7 @@
   </ol>
 </details>
 
-## О проекте
+### О проекте
 
 ___
 Концепция проекта заключается в создании клиета CRUD приложения для Windows, позволяюещего работать с некоторой базой данных на СУБД PostgreSQL. В данном случае создавалась некая база данных реестра пользоватетелей reestr_users
@@ -55,13 +55,13 @@ ___
 
 
 
-## Демонстрация ползовательского интерфейса
+### Демонстрация пользовательского интерфейса
 
 <p align="center">
 <img src="UI.PNG" alt="Logo" width="Auto" height="Auto">
 
 
-## Контакты
+### Контакты
 
 Email - [a.sadilov.official@gmail.com](mailto:a.sadilov.official@gmail.com)
 Telegram - [@bisnachauszuvorbei](https://t.me/bisnachauszuvorbei)
