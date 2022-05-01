@@ -16,7 +16,10 @@ namespace CRUDReestrApp.DAL.Models
         private string orgName;
         private long orgInn;
         private string orgAdress;
-
+        public User()
+        {
+            userId = new Guid();
+        }
         public event PropertyChangedEventHandler PropertyChanged;
         public Guid UserId
         {
