@@ -1,49 +1,50 @@
-﻿using CRUIDDapperApp.DAL.Implementations;
-using CRUIDDapperApp.DAL.Models;
+﻿using CRUDReestrApp.DAL.Implementations;
+using CRUDReestrApp.DAL.Models;
 using Microsoft.Win32;
-using Npgsql;
 using System;
-using System.Collections.Generic;
-using System.Data;
 using System.IO;
 using System.Windows;
+
 using System.Windows.Controls;
 using System.Windows.Input;
 
 
-namespace CRUIDDapperApp
+namespace CRUDReestrApp
 {
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
-        private UserRepositoryDAL userRepository = new UserRepositoryDAL();
-        private User user = new User();
+        private readonly UserRepositoryDAL userRepository = new UserRepositoryDAL();
+        private readonly User user = new User();
         public MainWindow()
         {
             InitializeComponent();
             DataContext = user;
-            /*textBoxFirstName.PreviewTextInput += OnInpuTextboxestInputPrewiew;
+            //GetData() creates a collection of Customer data from a database
+            //ObservableCollection<User> userdata = (ObservableCollection<User>)userRepository.GetUsers();
+
+            //Bind the DataGrid to the customer data
+            //DataContext = userdata;
+            textBoxFirstName.PreviewTextInput += OnInpuTextboxestInputPrewiew;
             textBoxLastName.PreviewTextInput += OnInpuTextboxestInputPrewiew;
             textBoxFatherName.PreviewTextInput += OnInpuTextboxestInputPrewiew;
             textBoxINN.PreviewTextInput += OnInpuTextboxestInputPrewiew;
             textBoxOrgName.PreviewTextInput += OnInpuTextboxestInputPrewiew;
             textBoxOrgINN.PreviewTextInput += OnInpuTextboxestInputPrewiew;
-            textBoxOrgAdress.PreviewTextInput += OnInpuTextboxestInputPrewiew;*/
+            textBoxOrgAdress.PreviewTextInput += OnInpuTextboxestInputPrewiew;
         }
 
         private void OnInpuTextboxestInputPrewiew(object sender, TextCompositionEventArgs e)
         {
             TextBox textBox = (TextBox)sender;
-
             textBox.TextChanged += TextBox_TextChanged;
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             TextBox textBox = (TextBox)sender;
-
             try
             {
 
@@ -59,7 +60,8 @@ namespace CRUIDDapperApp
         {
             try
             {
-                reestrGrid.ItemsSource = userRepository.GetUsers();
+                DataGrid.ItemsSource = userRepository.GetUsers();
+                Console.WriteLine(DataGrid.ItemsSource);
             }
             catch (Exception ex)
             {
@@ -71,7 +73,7 @@ namespace CRUIDDapperApp
             try
             {
                 userRepository.UpdateUser(user);
-                reestrGrid.ItemsSource = userRepository.GetUsers();
+                DataGrid.ItemsSource = userRepository.GetUsers();
             }
             catch (Exception ex)
             {
@@ -84,7 +86,7 @@ namespace CRUIDDapperApp
             try
             {
                 userRepository.AddUser(user);
-                reestrGrid.ItemsSource = userRepository.GetUsers();
+                DataGrid.ItemsSource = userRepository.GetUsers();
             }
             catch (Exception ex)
             {
@@ -95,7 +97,7 @@ namespace CRUIDDapperApp
         {
             try
             {
-                reestrGrid.ItemsSource = userRepository.GetUsers((User)DataContext);
+                DataGrid.ItemsSource = userRepository.GetUsers((User)DataContext);
             }
             catch (Exception ex)
             {
@@ -109,13 +111,12 @@ namespace CRUIDDapperApp
             {
                 User user1 = (User)DataContext;
                 userRepository.DeleteUser(userRepository.GetUserIdByContext(user));
-                reestrGrid.ItemsSource = userRepository.GetUsers();
+                DataGrid.ItemsSource = userRepository.GetUsers();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-
         }
         private void MenuItemHelpValues_Click(object sender, RoutedEventArgs e)
         {
@@ -124,7 +125,6 @@ namespace CRUIDDapperApp
                 "После ввода параметров, также была добавлена кнопка: \"Добавление сертификата\", которая подразумевает прикрепление доп. файлов пользователя.\n" +
                 "Далее находятся кнопки отправки запросов в бд.\n" +
                 "Более подробно о функционале кнопок можно узнать в соответсвующих пунктах меню \"Помощь\".";
-
             MessageBox.Show(outputMessage);
         }
 
@@ -135,7 +135,6 @@ namespace CRUIDDapperApp
                 "результат поиска выводится в табличной области.\n" +
                 "При отсутвии введенных параметров поиска и последующем нажатии кнопки, произойдет вывод всей таблицы.\n" +
                 "Параметры пользователя(-ей) необходимо задавать корректно.";
-
             MessageBox.Show(outputMessage);
         }
 
@@ -145,7 +144,6 @@ namespace CRUIDDapperApp
                 "Новые данные добавятся в конец таблицы, с соответсвующими параметрами, введенными в соответствующие поля выше.\n" +
                 "Параметр Id не подлежит вводу и редактированию.\n" +
                 "Параметры пользователя(-ей) необходимо задавать корректно.";
-
             MessageBox.Show(outputMessage);
         }
 
@@ -154,7 +152,7 @@ namespace CRUIDDapperApp
             string outputMessage = "Для удаления данных (строк(-и)) из бд, воспользуйтесь кнопкой: \"Удалить данные из бд\".\n" +
                 "Удаление затронет все строки, имеющие соответвствия по введенным параметрам, тоесть чтобы избежать избыточного удаления данных,\n" +
                 "необходимо конкретнее задавать параметры пользователя(-ей).";
-
+            
             MessageBox.Show(outputMessage);
         }
         private void addSertificates_Click(object sender, RoutedEventArgs e)
@@ -162,9 +160,7 @@ namespace CRUIDDapperApp
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "(*.txt)|*.txt|All files (*.*)|*.*";
             openFileDialog.InitialDirectory = AppDomain.CurrentDomain.BaseDirectory;
-
             openFileDialog.ShowDialog();
-
             if (openFileDialog.FileName != "")
             {
                 var sr = new StreamReader(openFileDialog.FileName);

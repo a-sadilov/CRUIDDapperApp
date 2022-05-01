@@ -1,12 +1,12 @@
-﻿using CRUIDDapperApp.DAL.Interfaces;
-using CRUIDDapperApp.DAL.Models;
+﻿using CRUDReestrApp.DAL.Interfaces;
+using CRUDReestrApp.DAL.Models;
 using System.Data;
 using System.Collections.Generic;
 using Dapper;
 using System;
 using System.Data.SqlTypes;
 
-namespace CRUIDDapperApp.DAL.Implementations
+namespace CRUDReestrApp.DAL.Implementations
 {
     public class UserRepositoryDAL : IUserRepository
     {
@@ -96,6 +96,7 @@ namespace CRUIDDapperApp.DAL.Implementations
             using (var connection = DBConnection.CreateConnection())
             {
                 return connection.Query<User>("select * from reestr_users");
+                
             }
         }
 

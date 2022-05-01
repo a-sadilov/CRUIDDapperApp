@@ -4,7 +4,7 @@ using System.Runtime.CompilerServices;
 using System;
 using System.Data.SqlTypes;
 
-namespace CRUIDDapperApp.DAL.Models
+namespace CRUDReestrApp.DAL.Models
 {
     public class User : INotifyPropertyChanged
     {
@@ -16,10 +16,7 @@ namespace CRUIDDapperApp.DAL.Models
         private string orgName;
         private long orgInn;
         private string orgAdress;
-        public User()
-        {
-            this.userId = Guid.NewGuid();
-        }
+
         public event PropertyChangedEventHandler PropertyChanged;
         public Guid UserId
         {

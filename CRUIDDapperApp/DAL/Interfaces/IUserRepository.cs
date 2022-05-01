@@ -1,4 +1,4 @@
-﻿using CRUIDDapperApp.DAL.Models;
+﻿using CRUDReestrApp.DAL.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlTypes;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CRUIDDapperApp.DAL.Interfaces
+namespace CRUDReestrApp.DAL.Interfaces
 {
     public interface IUserRepository
     {

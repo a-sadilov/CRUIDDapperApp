@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------------
 
 
-namespace CRUIDDapperApp.Properties
+namespace CRUDReestrApp.Properties
 {
     /// <summary>
     ///   Класс ресурсов со строгим типом для поиска локализованных строк и пр.
@@ -43,7 +43,7 @@ namespace CRUIDDapperApp.Properties
             {
                 if ((resourceMan == null))
                 {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("CRUIDDapperApp.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("CRUDReestrApp.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

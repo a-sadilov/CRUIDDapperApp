@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Npgsql;
 
-namespace CRUIDDapperApp.DAL.Implementations
+namespace CRUDReestrApp.DAL.Implementations
 {
     public class DBConnection
     {
